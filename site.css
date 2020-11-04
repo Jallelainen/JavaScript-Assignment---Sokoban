@@ -1,0 +1,77 @@
+#map {
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#menu {
+  padding: 10px;
+  
+}
+
+#instruct {
+    height: 576px;
+}
+
+.col-lg-12 {
+  background-color: brown;
+  margin: 10px;
+  color: wheat;
+  text-align: center;
+}
+
+#resetButton {
+    border: none;
+    color: wheat;
+    background-color: brown;
+    padding: 5px;
+    outline: 0px;
+    width: 100%;
+}
+
+#resetButton:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    background-color: rgb(167, 81, 78);
+    transition-duration: 3ms;
+}
+
+#resetButton:after {
+   border: none;
+}
+
+#resetButton:active {
+    transform: translateY(4px);
+    
+ }
+ 
+ #arrowKeys {
+     width: 100%;
+     margin-left: auto;
+     margin-right: auto;
+ }
+
+ header {
+     font-size: small;
+ }
+
+ footer {
+     font-size: small;
+ }
+
+ p {
+     margin: 5px;
+ }
+
+ h4 {
+     padding-bottom: 20px;
+     text-align: center;
+ }
+
+ h6 {
+     text-align: center;
+ }
+
+#map > img {
+  max-width: 36px;
+  max-height: 36px;
+}

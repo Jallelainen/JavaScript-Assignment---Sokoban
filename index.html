@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>java practice</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="site.css">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Assignment by Marcus Jarlevid</p>
+                    <p><span>&copy</span> 1982 by THINKING RABBIT Inc. JAPAN</p>
+                    <p><span>&copy</span> 2010-2020 Sokoban - All rights reserved</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="row">
+                <div id="logo" class="col-lg-10">
+                    <h1>Sokoban</h1>
+
+                </div>
+                <div id="menu" class="col-lg-2">
+                    <button id="resetButton" onclick="reset()">Start new Game</button>
+
+                </div>
+            </div>
+
+            <div class="row">
+                <div id="instruct" class="col-lg-2">
+                    <h4>How to play</h4>
+                    <p>
+                        The objective of the Sokoban game is to move boxes to designated locations by pushing them.
+                        
+                    </p>
+                    <p>
+                        These boxes are located inside a room surrounded by walls.
+                    </p>
+                    <p>
+                        The pusher can move up, down, left and right, 
+                        but cannot pass through walls or boxes, and can only push one box at a time (never pull).
+                    </p>
+                    <p>
+                        At any time, a square can only be occupied by either a wall, a box, or the pusher.
+                    </p>
+                </div>
+                <div id="map" class="col-lg-8">
+
+                </div>
+                <div id="how2move" class="col-lg-2">
+                    <h4>How to move</h4>
+                    <img id="arrowKeys" src="Pics/useArrows.png" alt="Arrow keys">
+                    <p>Use the arrow keys to move in the direction you want.</p>
+                    <h6><u>Highscores:</u></h6>
+                    <ol>
+                        <li id="sc1"></li>
+                        <li id="sc2"></li>
+                        <li id="sc3"></li>
+                    </ol>
+                    <h5 id="moves"></h5>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Assignment by Marcus Jarlevid</p>
+                    <p><span>&copy</span> 1982 by THINKING RABBIT Inc. JAPAN</p>
+                    <p><span>&copy</span> 2010-2020 Sokoban - All rights reserved</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="SokobanBase.js"></script>
+    <script src="thisScript.js"></script>
+</body>
