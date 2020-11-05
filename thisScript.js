@@ -76,6 +76,7 @@ function move(moveX, moveY) { // function for player movement, parameters based 
     playerTilePlus[1].src = imagePath["P"]; // inserts player tile at index 1
     player.y += moveY;
     player.x += moveX; // assigns player with new coordinates
+    moveCount();
   }
 }
 
@@ -99,7 +100,7 @@ function highscore(highscore) {
         while( keepAlive == true ){
             name = prompt("You got a highscore! Please enter a name with 3 symbols.");
             if (name.length == 3){
-                document.getElementById("sc1").innerHTML = name.bold + " " + score1 + " moves";
+                document.getElementById("sc1").innerHTML = name.bold() + " " + score1 + " moves";
                 keepAlive = false;
             }
         }
@@ -109,7 +110,7 @@ function highscore(highscore) {
         while( keepAlive == true ){
             name = prompt("You got a highscore! Please enter a name with 3 symbols.");
             if (name.length == 3){
-                document.getElementById("sc2").innerHTML = name.bold + " " + score2 + " moves";
+                document.getElementById("sc2").innerHTML = name.bold() + " " + score2 + " moves";
                 keepAlive = false;
             }
         }
@@ -118,7 +119,7 @@ function highscore(highscore) {
         while( keepAlive == true ){
             name = prompt("You got a highscore! Please enter a name with 3 symbols.");
             if (name.length == 3){
-                document.getElementById("sc3").innerHTML = name.bold + " " + score3 + " moves";
+                document.getElementById("sc3").innerHTML = name.bold() + " " + score3 + " moves";
                 keepAlive = false;
             }
         }
@@ -128,10 +129,10 @@ function highscore(highscore) {
 
 //--------------------------------EVENT LISTENERS-----------------------------------------------
 window.addEventListener("keydown", function (event) { //listens to if arrow keys are pressed and
-    if (event.key == "ArrowUp" && won != true){ move(-1, 0); moveCount(); }
-    else if (event.key == "ArrowLeft" && won != true){ move(0, -1); moveCount(); }
-    else if (event.key == "ArrowDown" && won != true){ move(1, 0); moveCount(); }
-    else if (event.key == "ArrowRight" && won != true){ move(0, 1); moveCount(); }
+    if (event.key == "ArrowUp" && won != true){ move(-1, 0); }
+    else if (event.key == "ArrowLeft" && won != true){ move(0, -1); }
+    else if (event.key == "ArrowDown" && won != true){ move(1, 0); }
+    else if (event.key == "ArrowRight" && won != true){ move(0, 1); }
     event.preventDefault(); } ); //prevents default function of arrowkeys (aka move page up/down etc)
   
 
