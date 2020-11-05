@@ -18,7 +18,7 @@ var score3;
 
 
 //--------------------------FUNCTIONS---------------------------------------------
-function reset() {
+function reset() { 
   let map = document.getElementById("map");
   goalCounter = 0;
   moveCounter = 0;
@@ -49,7 +49,7 @@ function reset() {
   console.log(goalCounter);
 }
 
-function move(moveX, moveY) { //Index 0: tile where player stands, Index 1: tile where player want to move, Index 2: Where player wanna move + 1
+function move(moveX, moveY) { 
   let playerTilePlus = [
     document.getElementById("x" + player.x + "y" + player.y),
     document.getElementById("x" + (player.x + moveX) + "y" + (player.y + moveY)),
@@ -96,7 +96,7 @@ function highscore(highscore) {
     let name;
     let keepAlive = true;
 
-    if ( highscore > score1 ){
+    if ( highscore < score1 ){
         score1 = highscore;
         while( keepAlive == true ){
             name = prompt("You got a highscore! Please enter a name with 3 symbols.");
@@ -106,7 +106,7 @@ function highscore(highscore) {
             }
         }
         
-    }else if ( highscore > score2){
+    }else if ( highscore < score2){
         score2 = highscore;
         while( keepAlive == true ){
             name = prompt("You got a highscore! Please enter a name with 3 symbols.");
@@ -115,7 +115,7 @@ function highscore(highscore) {
                 keepAlive = false;
             }
         }
-    }else if ( highscore > score3){
+    }else if ( highscore < score3){
         score3 = highscore;
         while( keepAlive == true ){
             name = prompt("You got a highscore! Please enter a name with 3 symbols.");
