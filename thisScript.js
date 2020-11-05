@@ -76,7 +76,7 @@ function move(moveX, moveY) { // function for player movement, parameters based 
     playerTilePlus[1].src = imagePath["P"]; // inserts player tile at index 1
     player.y += moveY;
     player.x += moveX; // assigns player with new coordinates
-    moveCount();
+    moveCount(); // increases move counter only when move is ok
   }
 }
 
@@ -95,16 +95,16 @@ function highscore(highscore) {
     let name;
     let keepAlive = true;
 
-    if ( highscore < score1 ){
-        score1 = highscore;
-        while( keepAlive == true ){
-            name = prompt("You got a highscore! Please enter a name with 3 symbols.");
-            if (name.length == 3){
+    //compares current highscore with previous scores
+    if ( highscore < score1 ){ 
+        score1 = highscore; //if higher, set new score
+        while( keepAlive == true ){ //loop until user inputs 3 symbols 
+            name = prompt("You got a highscore! Please enter a name with 3 symbols."); 
+            if (name.length == 3){ 
                 document.getElementById("sc1").innerHTML = name.bold() + " " + score1 + " moves";
                 keepAlive = false;
             }
-        }
-        
+        } 
     }else if ( highscore < score2){
         score2 = highscore;
         while( keepAlive == true ){
