@@ -85,8 +85,8 @@ function moveCount() { // adds a move counter
 }
 
 function winning() { // when winning conditions are met
-    highscore(moveCounter);
     alert("Congratulations! You've Won! Your score: " + moveCounter);
+    highscore(moveCounter);
     won = true; // prevents player from further movement
 }
 

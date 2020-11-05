@@ -71,6 +71,10 @@
      text-align: center;
  }
 
+ #sokologo {
+     
+ }
+
 #map > img {
   max-width: 36px;
   max-height: 36px;
@@ -79,3 +83,4 @@
 #soko {
     transform: translateX(3px);
 }
+
