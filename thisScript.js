@@ -12,9 +12,7 @@ var tileMap = tileMap01;
 var goalCounter;
 var moveCounter;
 var won;
-var score1 = 300;
-var score2 = 400;
-var score3 = 500;
+var score = [1000, 1000, 1000] ;
 
 
 //--------------------------FUNCTIONS---------------------------------------------
@@ -23,7 +21,7 @@ function reset() { //resets new game. also used to start initial game.
   moveCounter = 0;
   won = false;
   
-  document.getElementById("moves").innerHTML = "<b>Your Moves: </b>" + goalCounter; //sets up a move counter at 0, actual counting handled by another function.
+  document.getElementById("moves").innerHTML = "<b>Your Moves: </b>" + goalCounter; // sets up a move counter at 0, actual counting handled by another function.
   document.getElementById("map").innerHTML = ""; // clears previous map.
   document.getElementById("resetButton").innerHTML = "Reset";
 
@@ -41,7 +39,7 @@ function reset() { //resets new game. also used to start initial game.
         goalCounter++; // if goal, raise goal counter
       }
 
-      document.getElementById("map").appendChild(tile); //implement tile in map element
+      document.getElementById("map").appendChild(tile); // implement tile in map element
     }
   }
   
@@ -67,7 +65,7 @@ function move(moveX, moveY) { // function for player movement, parameters based 
       goalCounter--;
     if (tileMap.mapGrid[player.x + moveX][player.y + moveY][0] == "G") // if box is moved away from goal position, increase goal counter
       goalCounter++;
-      playerTilePlus[2].src = imagePath["B"]; //moves box along with player
+      playerTilePlus[2].src = imagePath["B"]; // moves box along with player
   }
 
   if (moveIsOk == true && won != true) { // if move is allowed and won state not met
@@ -95,45 +93,60 @@ function highscore(highscore) {
     let name;
     let keepAlive = true;
 
-    //compares current highscore with previous scores
-    if ( highscore < score1 ){ 
-        score1 = highscore; //if higher, set new score
-        while( keepAlive == true ){ //loop until user inputs 3 symbols 
+    // compares current highscore with previous scores
+    if ( highscore <= score[0] ){ 
+      moveHigh(1);
+      moveHigh(0);
+
+      score[0] = highscore; // if higher, set new score
+
+        while( keepAlive == true ){ // loop until user inputs 3 symbols 
             name = prompt("You got a highscore! Please enter a name with 3 symbols."); 
             if (name.length == 3){ 
-                document.getElementById("sc1").innerHTML = name.bold() + " " + score1 + " moves";
+                document.getElementById("sc1").innerHTML = name + ": " + score[0] + " moves";
                 keepAlive = false;
             }
         } 
-    }else if ( highscore < score2){
-        score2 = highscore;
+    }else if ( highscore <= score[1]){
+      moveHigh(1);
+      
+      score[1] = highscore;
+
         while( keepAlive == true ){
             name = prompt("You got a highscore! Please enter a name with 3 symbols.");
             if (name.length == 3){
-                document.getElementById("sc2").innerHTML = name.bold() + " " + score2 + " moves";
+                document.getElementById("sc2").innerHTML = name + ": " + score[1] + " moves";
                 keepAlive = false;
             }
         }
-    }else if ( highscore < score3){
-        score3 = highscore;
+    }else if ( highscore <= score[2]){
+      score[2] = highscore;
+      
         while( keepAlive == true ){
             name = prompt("You got a highscore! Please enter a name with 3 symbols.");
             if (name.length == 3){
-                document.getElementById("sc3").innerHTML = name.bold() + " " + score3 + " moves";
+                document.getElementById("sc3").innerHTML = name + ": " + score[2] + " moves";
                 keepAlive = false;
             }
         }
     }
 }
 
+function moveHigh(posNum) {
+  let content = [document.getElementById("sc1").textContent, document.getElementById("sc2").textContent];
+  let pos = ["sc2", "sc3"];
+
+  document.getElementById(pos[posNum]).innerHTML = content[posNum];
+}
+
 
 //--------------------------------EVENT LISTENERS-----------------------------------------------
-window.addEventListener("keydown", function (event) { //listens to if arrow keys are pressed and
+window.addEventListener("keydown", function (event) { // listens to if arrow keys are pressed and
     if (event.key == "ArrowUp" && won != true){ move(-1, 0); }
     else if (event.key == "ArrowLeft" && won != true){ move(0, -1); }
-    else if (event.key == "ArrowDown" && won != true){ move(1, 0); }
+    else if (event.key == "ArrowDown" && won != true){ move(1, 0); } 
     else if (event.key == "ArrowRight" && won != true){ move(0, 1); }
-    event.preventDefault(); } ); //prevents default function of arrowkeys (aka move page up/down etc)
+    event.preventDefault(); } ); // prevents default function of arrowkeys (aka move page up/down etc)
   
 
 window.addEventListener("keyup", function () {if (goalCounter === 0) winning();} ); // checks if won state is met after move is done
