@@ -14,9 +14,13 @@
     height: 576px;
 }
 
+#footer {
+    margin-top: 20px;
+
+}
+
 .col-lg-12 {
   background-color: brown;
-  margin: 10px;
   color: wheat;
   text-align: center;
 }
